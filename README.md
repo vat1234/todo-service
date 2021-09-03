@@ -50,28 +50,40 @@ For testing the actions, I recommend using Postman.
 CREATE a Category
 -------------------
 
-Example:
-POST http://localhost:8080/v1/user
 
-body- {
-    "password":"c29tZXBhc3N3b3Jk",
-    "firstName":"Varsha",
-    "lastName":"Mulgur",
-    "email":"test@testmail.com",
-    "mobileNo":9888,
-    "gender":"Female",
-    "birthdate":"2016-01-16"
+
+LOGIN via API provided by user-service 
+
+POST http://${host}:${port}/login
+
+Refer : https://github.com/vat1234/user-service/blob/main/README.md 
+ 
+Pass the token got in the RESPONSE HEADER after LOGIN in the REQUEST HEADER  or AUTHORIZATION FIELD.
+
+NOTE: todo-service doesn't have dependency on the user-service in Run time
+
+POST http://${host}:${port}/v1/categories
+Example:
+body - 
+{"name":"Education"}
+
+Response : {"name":"Education","id":"${id}","msg":"Category creation succesful."} 
+
+ADD TODO to a Category 
+----------------------
+
+
+POST http://${HOST}:${PORT}/v1/categories/${categoryId}/todo
+Example:
+body-{"name":"Tennis",
+"description":"Course",
+"dateTime":"2020-09-01",
+"status":"INITIAL"
 }
-Response : {"user":"test@testmail.com","msg":"Registered successfully"} 
 
-LOGIN  
---------------------
-Example:
-
-POST http://localhost:8080/login
-
-body-{"username":"test@testmail.com","password":"somepassword"}
-
-Response : Returns the bearertoken .
+Response:{"id":"${id},"msg":"","name":"Tennis",
+"description":"Course",
+"dateTime":"2020-09-01",
+"status":"INITIAL"}
 
 
