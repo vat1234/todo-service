@@ -64,13 +64,11 @@ CREATE a Category
 
 LOGIN via API provided by user-service 
 
-POST http://${host}:${port}/login
+POST http://${user-service}:${port}/login
 
 Refer : https://github.com/vat1234/user-service/blob/main/README.md 
  
-Pass the token got in the RESPONSE HEADER after LOGIN in the REQUEST HEADER  or AUTHORIZATION FIELD.
-
-NOTE: todo-service doesn't have dependency on the user-service in Run time
+Pass the token obtained from the user-service RESPONSE HEADER after successful LOGIN in the AUTHORIZATION FIELD while POST.
 
 POST http://${host}:${port}/v1/categories
 
@@ -89,7 +87,7 @@ ADD TODO to a Category
 
 POST http://${HOST}:${PORT}/v1/categories/${categoryid}/todo
 
-Pass the token got in the RESPONSE HEADER after LOGIN in the REQUEST HEADER  or AUTHORIZATION FIELD.
+Pass the token obtained from the user-service RESPONSE HEADER after successful LOGIN in the AUTHORIZATION FIELD while POST.
 
 Example:
 
@@ -109,7 +107,7 @@ MODIFY TODO in a Category
 
 PUT http://${HOST}:${PORT}/v1/categories/${categoryid}/todo/${todoid}
 
-Pass the token got in the RESPONSE HEADER after LOGIN in the REQUEST HEADER  or AUTHORIZATION FIELD.
+Pass the token obtained from the user-service RESPONSE HEADER after successful LOGIN in the AUTHORIZATION FIELD while POST.
 
 Example:
 
@@ -129,7 +127,7 @@ FILTER TODO for a USER by Status, Category and date
 
 GET http://${HOST}:${PORT}/v1/categories/${categoryid}?page=${page}&size=${size}&status=${status}&fromDate=${fromdate}&toDate=${todate}
 
-Pass the token got in the RESPONSE HEADER after LOGIN in the REQUEST HEADER  or AUTHORIZATION FIELD.
+Pass the token obtained from the user-service RESPONSE HEADER after successful LOGIN in the AUTHORIZATION FIELD while POST.
 
 Example: 
 
