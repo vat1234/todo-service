@@ -8,7 +8,8 @@ This project intent is to
     MODIFY TODO in a Category
     FILTER TODO based on allowed criteria.
     DELETE a Category
-
+    
+for authorised users.
 This microservice is RESTful API written in Java structured and designed using Spring Boot.
 
 Technologies
