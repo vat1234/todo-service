@@ -138,5 +138,7 @@ Response-
 
 List of todo 
 
-
+Points to NOTE
+----------------------------------
+1. Use the port mentioned in the docker compose file
 
